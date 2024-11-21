@@ -74,7 +74,7 @@ if st.button("Get Recommendations"):
             for group_idx in range(num_groups):
                 group_start = group_idx * 6
                 group_end = min(group_start + 6, num_products)
-                group_products = enriched_products[group_start:group_end]
+                group_enriched_products = enriched_products[group_start:group_end]
 
                 cols = st.columns(3)
                 for idx, product in enumerate(group_products):
@@ -102,7 +102,7 @@ if st.button("Get Recommendations"):
         st.error(f"Error fetching data from API: {e}")
 
 # Enrich the product data using ChatGPT if OpenAI API key is provided
-if openai_api_key and 'products' in globals() and st.button("Enrich Product Data"):
+if openai_api_key and 'products' in locals() and st.button("Enrich Product Data"):
     try:
         try:
             import openai
