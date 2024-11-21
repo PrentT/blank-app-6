@@ -77,7 +77,7 @@ if st.button("Get Recommendations"):
                 group_enriched_products = enriched_products[group_start:group_end]
 
                 cols = st.columns(3)
-                for idx, product in enumerate(group_products):
+                for idx, product in enumerate(group_enriched_products):
                     with cols[idx % 3]:
                         st.subheader(product["name"])
                         image_url = f"https://qark-images.pbimgs.com/pbimgs/qark/images/dp/wcm/{product['image']}"
